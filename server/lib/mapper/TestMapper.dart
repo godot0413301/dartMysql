@@ -1,8 +1,12 @@
-import 'package:mysql1/mysql1.dart'; 
 import 'BaseMapper.dart';
 
- Future  test() async{
-   var conn = BaseMapper();
-    // await conn.query('insert into test (test) values (?)', ['Bob']);
-    // await conn.close();
+ Future  addTest() async{
+   await BaseMapper('insert into test (name) values (?)', ['Bob']);
   }
+Future getTest() async{
+  var userId=1;
+  var results = await BaseMapper('select id,test from test where id = ?', [userId]);
+  for (var row in results) {
+  print('id: ${row[0]}, name: ${row[1]}');
+  };
+}
