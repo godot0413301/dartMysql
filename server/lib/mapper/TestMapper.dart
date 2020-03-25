@@ -1,11 +1,12 @@
 import 'BaseMapper.dart';
-
- Future  addTest() async{
-   await BaseMapper('insert into test (name) values (?)', ['Bob']);
+import 'package:dartCamera/model/Test.dart';
+var database='test';
+ Future  addTest() async {
+      await quer('insert into ${database} (name) values (?)', ['Bob']);
   }
-Future getTest() async{
-  var userId=1;
-  var results = await BaseMapper('select id,test from test where id = ?', [userId]);
+Future getTestById(id) async{
+  // var userId=1;
+  var results = await quer('select id,name from ${database} where id = ?', [id]);
   for (var row in results) {
   print('id: ${row[0]}, name: ${row[1]}');
   };

@@ -1,10 +1,10 @@
 import 'package:mysql1/mysql1.dart'; 
-Future BaseMapper(String sql, [List<Object> values]) async {
+Future quer(String sql, [List<Object> values]) async {
   var settings = ConnectionSettings(
   host: 'localhost', 
   port: 3306,
-  user: 'root',
-  password: 'root',
+  user: 'wangbangxiang',
+  password: 'aIRl#yTIL%o@fd6Y',
   db: 'camera'
 );
 var conn = await MySqlConnection.connect(settings);
